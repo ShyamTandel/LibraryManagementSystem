@@ -42,14 +42,16 @@ def main() :
         
         choice = input("Enter your choice between (1-5) : ")
         
-        if choice == "1" :    
-            bookid = input("Enter Book ID :")
-            title = input("Enter Book Title :")
-            author = input("Enter Book Writer name :")
-            year = input("Enter year of publication :")
-                
-            library.add_book(bookid,title,author,year)
-            print(f"Book '{title}' added successfully " )
+        if choice == "1":
+            bookid = input("Enter bookid: ")
+            title = input("Enter title: ")
+            author = input("Enter author: ")
+            year = input("Enter publication year: ")
+            try:
+                library.add_book(bookid, title, author, year)
+                print(f"Book '{title}' added successfully.")
+            except Exception as e:
+                print(e)
             
         elif choice == "2" :
             available_books = library.view_available_books()
