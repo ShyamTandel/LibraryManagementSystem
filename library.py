@@ -37,8 +37,10 @@ def main() :
         print("1. Add Book")
         print("2. View Available Books")
         print("3. Borrow Book")
+        print("4. Return Book")
+        print("5. Exit")
         
-        choice = input("Enter your choice 1 or 2 or 3 : ")
+        choice = input("Enter your choice between (1-5) : ")
         
         if choice == "1" :    
             bookid = input("Enter Book ID :")
@@ -64,6 +66,21 @@ def main() :
                 print(f"Book with bookid {bookid} borrowed successfully.")
             except Exception as e:
                 print(e)
+        
+        elif choice == "4":
+            bookid = input("Enter bookid of the book to return: ")
+            try:
+                library.return_book(bookid)
+                print(f"Book with bookid {bookid} returned successfully.")
+            except Exception as e:
+                print(e)
+                
+        elif choice == "5":
+            print("Exiting the Library Management System.")
+            break
+        
+        else:
+            print("Invalid choice. Please enter a number between 1 and 5.")
                 
 if __name__ == "__main__":
     main()
