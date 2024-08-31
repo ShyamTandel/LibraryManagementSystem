@@ -32,16 +32,29 @@ class Library:
 def main() :
     library = Library()
     
-    print("\nLibrary Management System")
-    print("Add Book")
+    while True:
+        print("\nLibrary Management System")
+        print("1. Add Book")
+        print("2. View Available Books")
       
-    bookid = input("Enter Book ID :")
-    title = input("Enter Book Title :")
-    author = input("Enter Book Writer name :")
-    year = input("Enter year of publication :")
+        choice = input("Enter your choice 1 or 2 : ")
         
-    library.add_book(bookid,title,author,year)
-    print(f"Book '{title}' added successfully " )
+        if choice == "1" :    
+            bookid = input("Enter Book ID :")
+            title = input("Enter Book Title :")
+            author = input("Enter Book Writer name :")
+            year = input("Enter year of publication :")
+                
+            library.add_book(bookid,title,author,year)
+            print(f"Book '{title}' added successfully " )
+            
+        elif choice == "2" :
+            available_books = library.view_available_books()
+            if not available_books:
+                print("No available books.")
+            else:
+                for bookid, details in available_books.items():
+                    print(f"{details['title']} by {details['author']} (bookid: {bookid}, Year: {details['publication_year']})")
         
 if __name__ == "__main__":
     main()
