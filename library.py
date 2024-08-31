@@ -27,4 +27,4 @@ class Library:
         self.books[bookid]["is_borrowed"] = False
     
     def view_available_books(self):
-        return {bookid: details for bookid, details in self.books.items()}
+        return {bookid: details for bookid, details in self.books.items() if not details["is_borrowed"]}
