@@ -25,3 +25,6 @@ class Library:
         if not self.books[bookid]["is_borrowed"]:
             raise Exception(f"The book '{self.books[bookid]['title']}' is not borrowed.")
         self.books[bookid]["is_borrowed"] = False
+    
+    def view_available_books(self):
+        return {bookid: details for bookid, details in self.books.items()}
