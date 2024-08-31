@@ -11,3 +11,10 @@ class Library:
             "publication_year": publication_year,
             "is_borrowed": False
         }
+        
+    def borrow_book(self, bookid):
+        if bookid not in self.books:
+            raise Exception(f"Book with bookid {bookid} does not exist.")
+        if self.books[bookid]["is_borrowed"]:
+            raise Exception(f"The book '{self.books[bookid]['title']}' is currently unavailable.")
+        self.books[bookid]["is_borrowed"] = True
