@@ -36,8 +36,9 @@ def main() :
         print("\nLibrary Management System")
         print("1. Add Book")
         print("2. View Available Books")
-      
-        choice = input("Enter your choice 1 or 2 : ")
+        print("3. Borrow Book")
+        
+        choice = input("Enter your choice 1 or 2 or 3 : ")
         
         if choice == "1" :    
             bookid = input("Enter Book ID :")
@@ -56,6 +57,14 @@ def main() :
                 for bookid, details in available_books.items():
                     print(f"{details['title']} by {details['author']} (bookid: {bookid}, Year: {details['publication_year']})")
         
+        elif choice == "3":
+            bookid = input("Enter bookid of the book to borrow: ")
+            try:
+                library.borrow_book(bookid)
+                print(f"Book with bookid {bookid} borrowed successfully.")
+            except Exception as e:
+                print(e)
+                
 if __name__ == "__main__":
     main()
 print("run successfully")
