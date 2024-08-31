@@ -18,3 +18,10 @@ class Library:
         if self.books[bookid]["is_borrowed"]:
             raise Exception(f"The book '{self.books[bookid]['title']}' is currently unavailable.")
         self.books[bookid]["is_borrowed"] = True
+
+    def return_book(self, bookid):
+        if bookid not in self.books:
+            raise Exception(f"Book with bookid {bookid} does not exist.")
+        if not self.books[bookid]["is_borrowed"]:
+            raise Exception(f"The book '{self.books[bookid]['title']}' is not borrowed.")
+        self.books[bookid]["is_borrowed"] = False
