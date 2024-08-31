@@ -1,7 +1,6 @@
 import unittest
 from library import Library 
 
-# Test case for the add_book method
 class TestLibrary(unittest.TestCase):
     def setUp(self):
         self.library = Library()
@@ -16,6 +15,12 @@ class TestLibrary(unittest.TestCase):
         self.library.borrow_book("1")
         self.assertTrue(self.library.books["1"]["is_borrowed"])
         
+    def test_return_book(self):
+        self.library.add_book("1", "Basic Maths", "shyam", "2023")
+        self.library.borrow_book("1")
+        self.library.return_book("1")
+        self.assertFalse(self.library.books["1"]["is_borrowed"])
+    
 if __name__ == "__main__":
     unittest.main()
     
