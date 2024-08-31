@@ -28,3 +28,21 @@ class Library:
     
     def view_available_books(self):
         return {bookid: details for bookid, details in self.books.items() if not details["is_borrowed"]}
+
+def main() :
+    library = Library()
+    
+    print("\nLibrary Management System")
+    print("Add Book")
+      
+    bookid = input("Enter Book ID :")
+    title = input("Enter Book Title :")
+    author = input("Enter Book Writer name :")
+    year = input("Enter year of publication :")
+        
+    library.add_book(bookid,title,author,year)
+    print(f"Book '{title}' added successfully " )
+        
+if __name__ == "__main__":
+    main()
+print("run successfully")
